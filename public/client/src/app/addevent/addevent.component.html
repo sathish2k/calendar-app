@@ -1,0 +1,18 @@
+<div style="margin: 0 auto;width:40%;">
+<mat-card>
+  <h1>Add Events</h1>
+  <form (ngSubmit)="addevent()" #f="ngForm">
+  <p style="margin-top:10px">Start Date</p>
+<angular2-date-picker [(ngModel)]="date" [ngModelOptions]="{standalone: true}" [settings]="settings"></angular2-date-picker>
+<p style="margin-top:10px">End Date</p>
+<angular2-date-picker [(ngModel)]="date1" [ngModelOptions]="{standalone: true}" [settings]="settings"></angular2-date-picker>
+<mat-form-field style="width:100%">
+    <input type="text" matInput placeholder="Event Title"   ngModel name="username" username #username="ngModel" required>
+    <span class="error-message" *ngIf="!username.valid &&username.touched">Event Title is required</span>
+  </mat-form-field>
+  <div  style="margin-top:40px;margin-bottom:20px;">
+      <button [disabled]='!f.valid' type="submit" mat-raised-button color="accent">ADD</button>
+    </div>
+</form>
+</mat-card>
+</div>

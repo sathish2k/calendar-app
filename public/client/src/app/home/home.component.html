@@ -1,0 +1,25 @@
+<div>
+  <h1 style="text-align:center">Events & Reminders</h1>
+  <div style="padding:10px 20px" class="col-md-6">
+    <mat-card>
+<ng-fullcalendar #ucCalendar
+[(eventsModel)]="events" 
+[options]="calendarOptions" 
+(eventClick)="eventClick($event.detail)" 
+(eventDrop)="updateEvent($event.detail)"
+  (eventResize)="updateEvent($event.detail)" 
+  (clickButton)="clickButton($event.detail)">
+</ng-fullcalendar>
+</mat-card>
+</div>
+<div style="padding:10px 20px" class="col-md-6">
+  <mat-card>
+  <h2>
+    Todays events
+  </h2>
+  <div *ngFor="let event of displayEvent">
+    <p>{{event.start|date:'yyyy-MM-dd HH:mm a'}} : {{event.title}}</p> 
+  </div>
+</mat-card>
+</div>
+</div>
